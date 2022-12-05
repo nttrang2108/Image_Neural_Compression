@@ -1,4 +1,4 @@
-python train_neural_compressor_28.py --entropy_coding_type="arm" \
+python train_neural_compressor_28.py --entropy_coding_type="uniform" \
                                     --D=784 \
                                     --C=16 \
                                     --E=8 \

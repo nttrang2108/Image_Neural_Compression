@@ -317,9 +317,6 @@ class Training_Model:
         total_rate = 0
         pbar = tqdm(self.train_loader)
         for batch_idx, batch in enumerate(pbar):
-            print(type(batch))
-            # shape
-            print(batch.shape)
             if hasattr(self.model, "dequantization"):
                 if self.model.dequantization:
                     batch = batch + torch.rand(batch.shape)
@@ -381,7 +378,7 @@ class Training_Model:
             # save model
             torch.save(
                 self.model,
-                "../weights/img_28/best_model_{}_{}_{}.pt".format(
+                "../weights/img_28/img_28_indp/best_model_{}_{}_{}.pt".format(
                     entropy_coding_type, epochs, total_loss
                 ),
             )

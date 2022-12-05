@@ -362,7 +362,9 @@ class Training_Model:
             # save model
             torch.save(
                 self.model,
-                "../weights/img_8/best_model_{}_{}.pt".format(epochs, total_loss),
+                "../weights/img_8/img_28_indp/best_model_{}_{}.pt".format(
+                    epochs, total_loss
+                ),
             )
             print("Save best model epoch {} total_loss{}".format(epochs, total_loss))
         else:
