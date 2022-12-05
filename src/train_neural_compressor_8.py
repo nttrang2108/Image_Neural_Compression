@@ -331,7 +331,7 @@ class Training_Model:
             }
         )
 
-    def eval(self, epochs, max_patience):
+    def eval(self, epochs, max_patience, args):
         print("============EVALUATION START {}============".format(epochs))
         self.model.eval()
         total_loss = 0
@@ -362,8 +362,8 @@ class Training_Model:
             # save model
             torch.save(
                 self.model,
-                "../weights/img_8/img_28_indp/best_model_{}_{}.pt".format(
-                    epochs, total_loss
+                "../weights/img_8/img_8_cus/best_model_{}_D_{}_C_{}_E_{}_M_{}_loss_{}.model".format(
+                    epochs, args.D, args.C, args.E, args.M, total_loss
                 ),
             )
             print("Save best model epoch {} total_loss{}".format(epochs, total_loss))
@@ -461,9 +461,15 @@ if __name__ == "__main__":
 
     wandb.init(
         project="Image_Compressor",
-        group="Neural_Compressor",
-        name="neural_compressor_{}_{}_{}".format(
-            args.entropy_coding_type, args.epochs, args.lr
+        group="Neural_Compressor_8_cus",
+        name="neural_compressor_{}_D_{}_C_{}_E_{}_M_{}_epochs_{}_lr_{}".format(
+            args.entropy_coding_type,
+            args.D,
+            args.C,
+            args.E,
+            args.M,
+            args.epochs,
+            args.lr,
         ),
     )
 
@@ -475,4 +481,4 @@ if __name__ == "__main__":
 
     for epoch in range(args.epochs):
         training_model.train(epoch)
-        training_model.eval(epoch, args.max_patience)
+        training_model.eval(epoch, args.max_patience, args)

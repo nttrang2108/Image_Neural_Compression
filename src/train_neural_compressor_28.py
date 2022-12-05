@@ -378,7 +378,7 @@ class Training_Model:
             # save model
             torch.save(
                 self.model,
-                "../weights/img_28/img_28_indp/best_model_{}_{}_{}.pt".format(
+                "../weights/img_28/img_28_indp/best_model_{}_{}_{}.model".format(
                     entropy_coding_type, epochs, total_loss
                 ),
             )
