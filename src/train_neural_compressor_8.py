@@ -301,9 +301,6 @@ class Training_Model:
         total_rate = 0
         pbar = tqdm(self.train_loader)
         for batch_idx, batch in enumerate(pbar):
-            print(type(batch))
-            # shape
-            print(batch.shape)
             if hasattr(self.model, "dequantization"):
                 if self.model.dequantization:
                     batch = batch + torch.rand(batch.shape)
@@ -363,7 +360,10 @@ class Training_Model:
         if total_loss < self.best_val_loss:
             self.best_val_loss = total_loss
             # save model
-            torch.save(self.model, "best_model_{}_{}.pt".format(epochs, total_loss))
+            torch.save(
+                self.model,
+                "../weights/img_8/best_model_{}_{}.pt".format(epochs, total_loss),
+            )
             print("Save best model epoch {} total_loss{}".format(epochs, total_loss))
         else:
             patience += 1
@@ -388,7 +388,7 @@ def config_seed(seed):
 
 def get_input():
     parser = argparse.ArgumentParser()
-    parser.add_argument("--entropy_coding_type", type=str, default="indp")
+    parser.add_argument("--entropy_coding_type", type=str, default="arm")
     parser.add_argument("--batch_size", type=int, default=64)
     parser.add_argument("--D", type=int, default=64)
     parser.add_argument("--C", type=int, default=16)
