@@ -19,12 +19,14 @@ To conclude the description of the neural compressor, the whole compression proc
 ## Result
 
 ### 64 -> 16 -> 64
-![results_C_16_E_8_64_8_64.png](imgs/results_C_16_E_8_64_16_64.png)
+
+<img src="imgs/results_C_16_E_8_64_16_64.png" width="400" >
+
 *Hình 2:Thử nghiệm với ảnh kích thước 8x8 về vector 16 chiều và giải mã về kích thước 8x8.*
 
 ### 784 -> 16 -> 784
 
-![results_C_256_E_32_784_256_784.png](imgs/results_C_256_E_32_784_256_784.png)
+<img src="imgs/results_C_256_E_32_784_256_784.png" width="400">
 
 *Hình 3:Thử nghiệm với ảnh kích thước 28x28 về vector 256 chiều và giải mã về kích thước 28x28.*
 
