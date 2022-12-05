@@ -1,7 +1,7 @@
 python train_neural_compressor_28.py --entropy_coding_type="uniform" \
                                     --D=784 \
-                                    --C=16 \
-                                    --E=8 \
+                                    --C=256 \
+                                    --E=32 \
                                     --M=256 \
                                     --M_kernels=32 \
                                     --batch_size=64 \
